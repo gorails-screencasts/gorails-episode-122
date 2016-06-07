@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Comments</h1>
+
+<% @comments.each do |comment| %>
+    <div><%= simple_format comment.body %></div>
+<% end %>
+
+<%= render partial: "comments/form", locals: {comment: @comment} %>
+<%= render partial: "comments/form", locals: {comment: @comment} %>
+<%= render partial: "comments/form", locals: {comment: @comment} %>
+<%= render partial: "comments/form", locals: {comment: @comment} %>
+<%= render partial: "comments/form", locals: {comment: @comment} %>

@@ -1,0 +1,25 @@
+<%= form_for(comment, html: {data: {behavior: "has-saved-messages"}}) do |f| %>
+  <% if comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= link_to "Add a saved message", new_saved_message_path %>
+  <%= select_tag "saved_messages", options_for_select(SavedMessage.all.map{ |sm| [sm.title, sm.id, data: {body: sm.body}] }), prompt: "Select a saved message", data: {behavior: "saved-message-select"} %>
+
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body, data: {behavior: "comment-body"}%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

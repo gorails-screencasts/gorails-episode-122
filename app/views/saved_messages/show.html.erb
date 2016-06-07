@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @saved_message.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @saved_message.body %>
+</p>
+
+<%= link_to 'Edit', edit_saved_message_path(@saved_message) %> |
+<%= link_to 'Back', saved_messages_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Saved Messages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @saved_messages.each do |saved_message| %>
+      <tr>
+        <td><%= saved_message.title %></td>
+        <td><%= saved_message.body %></td>
+        <td><%= link_to 'Show', saved_message %></td>
+        <td><%= link_to 'Edit', edit_saved_message_path(saved_message) %></td>
+        <td><%= link_to 'Destroy', saved_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Saved Message', new_saved_message_path %>
